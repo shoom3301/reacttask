@@ -29,7 +29,7 @@ let TodoItem = React.createClass({
     },
     render: function(){
         return (
-            <li className="todoItem">
+            <li data-id={this.state.id} ref="item" className="todoItem">
                 {this.state.editable
                     ? <TodoCreate text={this.state.text} add={this.update}/>
                     : <div className="text">{this.state.text}</div>

@@ -70,7 +70,7 @@ let TodoApp = React.createClass({
                 <TodoCreate add={this.addItem}/>
             </div>
             <div className="todoItems">
-                <TodoList items={this.state.items} saveItem={this.saveItem} removeItem={this.removeItem}/>
+                <TodoList items={this.state.items} updateItems={this.updateItems} saveItem={this.saveItem} removeItem={this.removeItem}/>
             </div>
         </div>
         );

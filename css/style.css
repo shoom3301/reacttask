@@ -75,5 +75,7 @@ body {
           background-image: url("../images/edit.png"); }
         #todoList .todoItems .todoItem .actions button.remove {
           background-image: url("../images/remove.png"); }
+    #todoList .todoItems .todoItem.sortable-chosen {
+      background-color: #e6f5ff; }
 
 /*# sourceMappingURL=style.css.map */
