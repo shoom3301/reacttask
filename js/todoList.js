@@ -14,10 +14,6 @@ let TodoList = React.createClass({
         return {items: this.props.items || []};
     },
     /**
-     * Begin item id
-     */
-    itemId: 0,
-    /**
      * Update list of items (and save to localStorage)
      * @param items {array|undefined} array of items (as default this.state.items)
      */
@@ -30,7 +26,7 @@ let TodoList = React.createClass({
      * @param item {object} item model
      */
     saveItem: function(item){
-        let items = this.state.items.slice(0);
+        let items = this.state.items;
         for(let i=0; i<items.length; i++){
             if(items[i].id == item.id){
                 items[i] = item;
@@ -44,9 +40,8 @@ let TodoList = React.createClass({
      * @param text {string} new item text
      */
     addItem: function(text){
-        this.itemId++;
         this.state.items.push({
-            id: this.itemId,
+            id: Date.now(),
             index: this.state.items.length+1,
             text: text
         });
@@ -82,8 +77,8 @@ let TodoList = React.createClass({
      * @returns {Array}
      */
     getItems: function(){
-        return this.state.items.map((item, index) => {
-            return (<TodoItem key={index} model={item} remove={this.removeItem} update={this.saveItem}/>);
+        return this.state.items.map((item) => {
+            return (<TodoItem key={item.id} model={item} remove={this.removeItem} update={this.saveItem}/>);
         });
     }
 });
