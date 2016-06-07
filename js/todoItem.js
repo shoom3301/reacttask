@@ -11,8 +11,11 @@ let TodoItem = React.createClass({
     getInitialState: function () {
         return this.props.model;
     },
+    /**
+     * Remove item
+     */
     remove: function(){
-
+        typeof this.props.remove == 'function' && this.props.remove(this.state.id);
     },
     render: function(){
         return (

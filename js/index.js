@@ -2,12 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './todoList.js';
 
-let items = localStorage.getItem('todoListData');
-if(items){
-    items = JSON.parse(items);
-}else{
-    items = [{text: 'test'}];
-}
+window.React = React;
+window.ReactDOM = ReactDOM;
+
+let items = JSON.parse(localStorage.getItem('todoListData'));
 
 document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(
