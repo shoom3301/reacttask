@@ -29,7 +29,7 @@ let TodoItem = React.createClass({
     },
     render: function(){
         return (
-            <div className="todoItem">
+            <li className="todoItem">
                 {this.state.editable
                     ? <TodoCreate text={this.state.text} add={this.update}/>
                     : <div className="text">{this.state.text}</div>
@@ -38,7 +38,7 @@ let TodoItem = React.createClass({
                     <button onClick={this.edit} className="edit"></button>
                     <button onClick={this.remove} className="remove"></button>
                 </div>
-            </div>
+            </li>
         );
     }
 });
