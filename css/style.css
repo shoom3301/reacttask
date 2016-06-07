@@ -41,11 +41,19 @@ body {
     font-size: 0;
     border-bottom: 1px dotted #b8c9d6;
     padding: 10px 0 8px 10px; }
-    #todoList .todoItems .todoItem .text, #todoList .todoItems .todoItem .actions {
+    #todoList .todoItems .todoItem > form input {
+      margin: -10px;
+      width: 100%;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      border: 1px dashed #b8c9d6;
+      font-size: 16px;
+      outline: none; }
+    #todoList .todoItems .todoItem > form, #todoList .todoItems .todoItem .text, #todoList .todoItems .todoItem .actions {
       display: inline-block;
       font-size: 14px;
       vertical-align: top; }
-    #todoList .todoItems .todoItem .text {
+    #todoList .todoItems .todoItem > form, #todoList .todoItems .todoItem .text {
       padding-top: 3px;
       width: 85%;
       font-size: 16px; }

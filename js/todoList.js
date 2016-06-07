@@ -17,9 +17,27 @@ let TodoList = React.createClass({
      * Begin item id
      */
     itemId: 0,
+    /**
+     * Update list of items (and save to localStorage)
+     * @param items {array|undefined} array of items (as default this.state.items)
+     */
     updateItems: function(items){
-        this.setState({ items: items || this.state.items });
+        this.setState({ items: typeof items == 'array' ? items : this.state.items });
         localStorage.setItem('todoListData', JSON.stringify(this.state.items));
+    },
+    /**
+     * Save item data to localStorage
+     * @param item {object} item model
+     */
+    saveItem: function(item){
+        let items = this.state.items.slice(0);
+        for(let i=0; i<items.length; i++){
+            if(items[i].id == item.id){
+                items[i] = item;
+                break;
+            }
+        }
+        localStorage.setItem('todoListData', JSON.stringify(items));
     },
     /**
      * Callback for TodoCreate submit form event
@@ -65,7 +83,7 @@ let TodoList = React.createClass({
      */
     getItems: function(){
         return this.state.items.map((item, index) => {
-            return (<TodoItem key={index} model={item} remove={this.removeItem}/>);
+            return (<TodoItem key={index} model={item} remove={this.removeItem} update={this.saveItem}/>);
         });
     }
 });

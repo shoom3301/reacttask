@@ -53,12 +53,23 @@ body{
       font-size: 0;
       border-bottom: 1px dotted $borderColor;
       padding: 10px 0 8px 10px;
-      .text, .actions{
+      >form{
+        input{
+          margin: -10px;
+          width: 100%;
+          padding: 5px 10px;
+          box-sizing: border-box;
+          border: 1px dashed $borderColor;
+          font-size: 16px;
+          outline: none;
+        }
+      }
+      >form, .text, .actions{
         display: inline-block;
         font-size: 14px;
         vertical-align: top;
       }
-      .text{
+      >form, .text{
         padding-top: 3px;
         width: 85%;
         font-size: 16px;

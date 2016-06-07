@@ -9,7 +9,7 @@ import React from 'react';
  */
 let TodoCreate = React.createClass({
     getInitialState: function () {
-        return {text: ''};
+        return {text: this.props.text || ''};
     },
     /**
      * When form submitted
