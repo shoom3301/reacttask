@@ -6,7 +6,7 @@ let items = localStorage.getItem('todoListData');
 if(items){
     items = JSON.parse(items);
 }else{
-    items = [];
+    items = [{text: 'test'}];
 }
 
 document.addEventListener("DOMContentLoaded", () => {

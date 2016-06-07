@@ -8,6 +8,9 @@ import React from 'react';
  * Class of todo create form
  */
 let TodoCreate = React.createClass({
+    getInitialState: function () {
+        return {text: ''};
+    },
     /**
      * When form submitted
      * @param e {Event}
@@ -16,6 +19,7 @@ let TodoCreate = React.createClass({
         e.preventDefault();
         let text = this.state.text.trim();
         text && typeof this.props.add == 'function' && this.props.add(text);
+        this.setState({text: ''});
     },
     /**
      * On input change
@@ -27,7 +31,7 @@ let TodoCreate = React.createClass({
     render: function(){
         return (
             <form onSubmit={this.formSubmit}>
-                <input onChange={this.onChange} name="text" type="text" placeholder="New record ..."/>
+                <input onChange={this.onChange} value={this.state.text} name="text" type="text" placeholder="New record ..."/>
             </form>
         );
     }
